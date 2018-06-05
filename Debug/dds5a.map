@@ -40,8 +40,8 @@ c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../..
                               ./Encoder.o (malloc)
 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strlen.o)
                               ./main.o (strlen)
-c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fprintf.o)
-                              ./main.o (fprintf)
+c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fwrite.o)
+                              ./main.o (fwrite)
 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(iob.o)
                               ./main.o (__iob)
 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(puts.o)
@@ -49,7 +49,7 @@ c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../..
 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(sprintf.o)
                               ./params.o (sprintf)
 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
-                              c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fprintf.o) (vfprintf)
+                              c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(sprintf.o) (vfprintf)
 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
                               c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(vfprintf_std.o) (strnlen_P)
 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strnlen.o)
@@ -59,9 +59,9 @@ c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../..
 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
                               c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(vfprintf_std.o) (__ultoa_invert)
 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_prologue.o)
-                              c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fprintf.o) (__prologue_saves__)
+                              c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fwrite.o) (__prologue_saves__)
 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_epilogue.o)
-                              c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fprintf.o) (__epilogue_restores__)
+                              c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fwrite.o) (__epilogue_restores__)
 
 Allocating common symbols
 Common symbol       size              file
@@ -80,6 +80,14 @@ Discarded input sections
  .text          0x00000000        0x0 ./ElapsedTime.o
  .data          0x00000000        0x0 ./ElapsedTime.o
  .bss           0x00000000        0x0 ./ElapsedTime.o
+ .text._ZN11ElapsedTimeC2Ej
+                0x00000000       0x4e ./ElapsedTime.o
+ .text._ZN11ElapsedTime8callbackEv
+                0x00000000       0x2c ./ElapsedTime.o
+ .text._ZN11ElapsedTime7expiredEv
+                0x00000000       0x32 ./ElapsedTime.o
+ .rodata._ZTV11ElapsedTime
+                0x00000000        0x6 ./ElapsedTime.o
  .group         0x00000000        0x8 ./Encoder.o
  .group         0x00000000        0x8 ./Encoder.o
  .group         0x00000000        0x8 ./Encoder.o
@@ -94,8 +102,10 @@ Discarded input sections
  .text          0x00000000        0x0 ./clock.o
  .data          0x00000000        0x0 ./clock.o
  .bss           0x00000000        0x0 ./clock.o
- .text._ZN5Clock12registerOnceEP8Callback
-                0x00000000       0x6a ./clock.o
+ .text._ZN5Clock8getTicksEv
+                0x00000000       0x22 ./clock.o
+ .text._ZN5Clock14cancelPeriodicEi
+                0x00000000       0x3e ./clock.o
  .text._ZN5ClockD2Ev
                 0x00000000       0x18 ./clock.o
  .text          0x00000000        0x0 ./dds.o
@@ -110,6 +120,14 @@ Discarded input sections
                 0x00000000       0x70 ./graphics.o
  .text._ZN8Graphics6puts2xEPchh
                 0x00000000       0x76 ./graphics.o
+ .text._ZN8Graphics4rectE7_pixpsnjj9_pixColor
+                0x00000000      0x1de ./graphics.o
+ .text          0x00000000        0x0 ./keyer.o
+ .data          0x00000000        0x0 ./keyer.o
+ .bss           0x00000000        0x0 ./keyer.o
+ .stab          0x00000000      0x774 ./keyer.o
+                                0x780 (size before relaxing)
+ .comment       0x00000000       0x12 ./keyer.o
  .text          0x00000000        0x0 ./lcd.o
  .data          0x00000000        0x0 ./lcd.o
  .bss           0x00000000        0x0 ./lcd.o
@@ -121,6 +139,8 @@ Discarded input sections
                 0x00000000       0x3a ./lcd.o
  .text._ZN3Lcd6clrEolEv
                 0x00000000       0x42 ./lcd.o
+ .text._ZN3Lcd4putsEPKc9_pixColor
+                0x00000000       0xb0 ./lcd.o
  .text._ZN3Lcd10drawCursorEh
                 0x00000000       0xce ./lcd.o
  .group         0x00000000        0x8 ./led.o
@@ -139,7 +159,12 @@ Discarded input sections
                 0x00000000       0x36 ./led.o
  .rodata._ZTV8Callback
                 0x00000000        0x6 ./led.o
- .group         0x00000000        0x8 ./main.o
+ .text          0x00000000        0x0 ./listbox.o
+ .data          0x00000000        0x0 ./listbox.o
+ .bss           0x00000000        0x0 ./listbox.o
+ .stab          0x00000000      0x780 ./listbox.o
+                                0x78c (size before relaxing)
+ .comment       0x00000000       0x12 ./listbox.o
  .group         0x00000000        0x8 ./main.o
  .group         0x00000000        0x8 ./main.o
  .group         0x00000000        0x8 ./main.o
@@ -154,11 +179,20 @@ Discarded input sections
  .bss           0x00000000        0x0 ./main.o
  .text._ZN2SwnwEj
                 0x00000000       0x20 ./main.o
+ .group         0x00000000        0x8 ./params.o
+ .group         0x00000000        0x8 ./params.o
+ .group         0x00000000        0x8 ./params.o
  .text          0x00000000        0x0 ./params.o
  .data          0x00000000        0x0 ./params.o
  .bss           0x00000000        0x0 ./params.o
- .text._ZN6params12getActiveVfoEv
-                0x00000000       0x20 ./params.o
+ .text._ZppR6_parami
+                0x00000000       0x52 ./params.o
+ .text._ZppR6_param
+                0x00000000       0x48 ./params.o
+ .text._ZN8CallbackC2Ev
+                0x00000000       0x26 ./params.o
+ .rodata._ZTV8Callback
+                0x00000000        0x6 ./params.o
  .group         0x00000000        0x8 ./sw.o
  .group         0x00000000        0x8 ./sw.o
  .group         0x00000000        0x8 ./sw.o
@@ -184,6 +218,8 @@ Discarded input sections
                 0x00000000       0x24 ./vfo.o
  .text._ZN3vfo16getRxDisplayFreqEPc5_band
                 0x00000000       0x96 ./vfo.o
+ .text._ZN3vfo9setActVfoE10vfo_actv_t
+                0x00000000       0x2c ./vfo.o
  .text          0x00000000        0x0 ./workarounds.o
  .data          0x00000000        0x0 ./workarounds.o
  .bss           0x00000000        0x0 ./workarounds.o
@@ -335,9 +371,9 @@ Discarded input sections
  .text          0x00000000        0x0 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strlen.o)
  .data          0x00000000        0x0 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strlen.o)
  .bss           0x00000000        0x0 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strlen.o)
- .text          0x00000000        0x0 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fprintf.o)
- .data          0x00000000        0x0 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fprintf.o)
- .bss           0x00000000        0x0 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fprintf.o)
+ .text          0x00000000        0x0 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fwrite.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fwrite.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fwrite.o)
  .text          0x00000000        0x0 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(iob.o)
  .data          0x00000000        0x0 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(iob.o)
  .bss           0x00000000        0x0 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(iob.o)
@@ -413,8 +449,10 @@ LOAD ./clock.o
 LOAD ./dds.o
 LOAD ./font.o
 LOAD ./graphics.o
+LOAD ./keyer.o
 LOAD ./lcd.o
 LOAD ./led.o
+LOAD ./listbox.o
 LOAD ./main.o
 LOAD ./params.o
 LOAD ./sw.o
@@ -527,7 +565,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x52c2
+.text           0x00000000     0x5730
  *(.vectors)
  .vectors       0x00000000       0x68 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
                 0x00000000                __vector_default
@@ -595,10 +633,10 @@ END GROUP
                 0x000000a2                __vector_3
                 0x000000a2                __vector_23
                 0x000000a2                __vector_25
+                0x000000a2                __vector_11
                 0x000000a2                __vector_13
                 0x000000a2                __vector_17
                 0x000000a2                __vector_19
-                0x000000a2                __vector_7
                 0x000000a2                __vector_5
                 0x000000a2                __vector_4
                 0x000000a2                __vector_9
@@ -619,352 +657,351 @@ END GROUP
                 0x000006cc       0x26 ./ElapsedTime.o
                 0x000006cc                _ZN8CallbackC1Ev
                 0x000006cc                _ZN8CallbackC2Ev
- .text._ZN11ElapsedTimeC2Eh
-                0x000006f2       0x52 ./ElapsedTime.o
-                0x000006f2                _ZN11ElapsedTimeC1Eh
-                0x000006f2                _ZN11ElapsedTimeC2Eh
- .text._ZN11ElapsedTime8callbackEv
-                0x00000744       0x5c ./ElapsedTime.o
-                0x00000744                _ZN11ElapsedTime8callbackEv
- .text._ZN11ElapsedTime7expiredEv
-                0x000007a0       0x32 ./ElapsedTime.o
-                0x000007a0                _ZN11ElapsedTime7expiredEv
  .text._ZN2SwnwEj
-                0x000007d2       0x20 ./Encoder.o
-                0x000007d2                _ZN2SwnwEj
+                0x000006f2       0x20 ./Encoder.o
+                0x000006f2                _ZN2SwnwEj
  .text._ZN7EncoderC2Ehhh
-                0x000007f2      0x11c ./Encoder.o
-                0x000007f2                _ZN7EncoderC2Ehhh
-                0x000007f2                _ZN7EncoderC1Ehhh
+                0x00000712      0x120 ./Encoder.o
+                0x00000712                _ZN7EncoderC2Ehhh
+                0x00000712                _ZN7EncoderC1Ehhh
  .text._ZN7Encoder6updateEv
-                0x0000090e      0x212 ./Encoder.o
-                0x0000090e                _ZN7Encoder6updateEv
+                0x00000832      0x212 ./Encoder.o
+                0x00000832                _ZN7Encoder6updateEv
  .text._ZN7Encoder8hasEventEv
-                0x00000b20       0x28 ./Encoder.o
-                0x00000b20                _ZN7Encoder8hasEventEv
+                0x00000a44       0x28 ./Encoder.o
+                0x00000a44                _ZN7Encoder8hasEventEv
  .text._ZN7Encoder8getEventEv
-                0x00000b48       0x20 ./Encoder.o
-                0x00000b48                _ZN7Encoder8getEventEv
+                0x00000a6c       0x20 ./Encoder.o
+                0x00000a6c                _ZN7Encoder8getEventEv
  .text._ZN7Encoder10clearEventEv
-                0x00000b68       0x20 ./Encoder.o
-                0x00000b68                _ZN7Encoder10clearEventEv
+                0x00000a8c       0x20 ./Encoder.o
+                0x00000a8c                _ZN7Encoder10clearEventEv
  .text._ZN7Encoder8callbackEv
-                0x00000b88       0x1e ./Encoder.o
-                0x00000b88                _ZN7Encoder8callbackEv
+                0x00000aac       0x1e ./Encoder.o
+                0x00000aac                _ZN7Encoder8callbackEv
  .text._ZN7Encoder16getMissedCwCountEv
-                0x00000ba6       0x3a ./Encoder.o
-                0x00000ba6                _ZN7Encoder16getMissedCwCountEv
+                0x00000aca       0x3a ./Encoder.o
+                0x00000aca                _ZN7Encoder16getMissedCwCountEv
  .text._ZN7Encoder17getMissedCcwCountEv
-                0x00000be0       0x3a ./Encoder.o
-                0x00000be0                _ZN7Encoder17getMissedCcwCountEv
+                0x00000b04       0x3a ./Encoder.o
+                0x00000b04                _ZN7Encoder17getMissedCcwCountEv
  .text._ZN7Encoder12setEventRateEh
-                0x00000c1a       0x2e ./Encoder.o
-                0x00000c1a                _ZN7Encoder12setEventRateEh
- .text.__vector_11
-                0x00000c48       0x56 ./clock.o
-                0x00000c48                __vector_11
+                0x00000b3e       0x2e ./Encoder.o
+                0x00000b3e                _ZN7Encoder12setEventRateEh
+ .text.__vector_7
+                0x00000b6c       0x56 ./clock.o
+                0x00000b6c                __vector_7
  .text._ZN5Clock4tickEv
-                0x00000c9e      0x160 ./clock.o
-                0x00000c9e                _ZN5Clock4tickEv
+                0x00000bc2      0x1ee ./clock.o
+                0x00000bc2                _ZN5Clock4tickEv
  .text._ZN5Clock5delayEm
-                0x00000dfe       0x5a ./clock.o
-                0x00000dfe                _ZN5Clock5delayEm
- .text._ZN5Clock8getTicksEv
-                0x00000e58       0x22 ./clock.o
-                0x00000e58                _ZN5Clock8getTicksEv
- .text._ZN5Clock16registerPeriodicEP8Callback
-                0x00000e7a       0x6a ./clock.o
-                0x00000e7a                _ZN5Clock16registerPeriodicEP8Callback
+                0x00000db0       0x5a ./clock.o
+                0x00000db0                _ZN5Clock5delayEm
+ .text._ZN5Clock16registerPeriodicEP8Callbackj
+                0x00000e0a       0xa4 ./clock.o
+                0x00000e0a                _ZN5Clock16registerPeriodicEP8Callbackj
+ .text._ZN5Clock15registerOneshotEP8Callbackj
+                0x00000eae       0x8e ./clock.o
+                0x00000eae                _ZN5Clock15registerOneshotEP8Callbackj
+ .text._ZN5Clock13cancelOneshotEi
+                0x00000f3c       0x3e ./clock.o
+                0x00000f3c                _ZN5Clock13cancelOneshotEi
  .text._ZN5ClockC2Ev
-                0x00000ee4       0xd6 ./clock.o
-                0x00000ee4                _ZN5ClockC1Ev
-                0x00000ee4                _ZN5ClockC2Ev
+                0x00000f7a       0xc0 ./clock.o
+                0x00000f7a                _ZN5ClockC1Ev
+                0x00000f7a                _ZN5ClockC2Ev
  .text._Z7usecDlyi
-                0x00000fba       0x32 ./clock.o
-                0x00000fba                _Z7usecDlyi
- .text.DdsInit  0x00000fec       0x66 ./dds.o
-                0x00000fec                DdsInit
- .text.dds      0x00001052      0x180 ./dds.o
-                0x00001052                dds
+                0x0000103a       0x32 ./clock.o
+                0x0000103a                _Z7usecDlyi
+ .text.DdsInit  0x0000106c       0x86 ./dds.o
+                0x0000106c                DdsInit
+ .text.dds      0x000010f2      0x16c ./dds.o
+                0x000010f2                dds
  .text._ZN8Graphics10draw2xCharEchh9_pixColorS0_
-                0x000011d2      0x32a ./graphics.o
-                0x000011d2                _ZN8Graphics10draw2xCharEchh9_pixColorS0_
+                0x0000125e      0x326 ./graphics.o
+                0x0000125e                _ZN8Graphics10draw2xCharEchh9_pixColorS0_
  .text._ZN3LcdC2Ev
-                0x000014fc       0xc6 ./lcd.o
-                0x000014fc                _ZN3LcdC2Ev
-                0x000014fc                _ZN3LcdC1Ev
+                0x00001584       0xc8 ./lcd.o
+                0x00001584                _ZN3LcdC2Ev
+                0x00001584                _ZN3LcdC1Ev
  .text._ZN3Lcd5resetEv
-                0x000015c2       0x56 ./lcd.o
-                0x000015c2                _ZN3Lcd5resetEv
+                0x0000164c       0x56 ./lcd.o
+                0x0000164c                _ZN3Lcd5resetEv
  .text._ZN3Lcd7sendCmdEh
-                0x00001618       0x34 ./lcd.o
-                0x00001618                _ZN3Lcd7sendCmdEh
+                0x000016a2       0x34 ./lcd.o
+                0x000016a2                _ZN3Lcd7sendCmdEh
  .text._ZN3Lcd8sendDataEPhh
-                0x0000164c       0x6e ./lcd.o
-                0x0000164c                _ZN3Lcd8sendDataEPhh
+                0x000016d6       0x6e ./lcd.o
+                0x000016d6                _ZN3Lcd8sendDataEPhh
  .text._ZN3Lcd8sendByteEh
-                0x000016ba       0x92 ./lcd.o
-                0x000016ba                _ZN3Lcd8sendByteEh
+                0x00001744       0x90 ./lcd.o
+                0x00001744                _ZN3Lcd8sendByteEh
  .text._ZN3Lcd2onEv
-                0x0000174c       0x22 ./lcd.o
-                0x0000174c                _ZN3Lcd2onEv
+                0x000017d4       0x22 ./lcd.o
+                0x000017d4                _ZN3Lcd2onEv
  .text._ZN3Lcd9sleep_outEv
-                0x0000176e       0x22 ./lcd.o
-                0x0000176e                _ZN3Lcd9sleep_outEv
+                0x000017f6       0x22 ./lcd.o
+                0x000017f6                _ZN3Lcd9sleep_outEv
  .text._ZN3Lcd10mem_accessEv
-                0x00001790       0x44 ./lcd.o
-                0x00001790                _ZN3Lcd10mem_accessEv
+                0x00001818       0x44 ./lcd.o
+                0x00001818                _ZN3Lcd10mem_accessEv
  .text._ZN3Lcd11lcd_putcharEc
-                0x000017d4      0x21a ./lcd.o
-                0x000017d4                _ZN3Lcd11lcd_putcharEc
+                0x0000185c      0x212 ./lcd.o
+                0x0000185c                _ZN3Lcd11lcd_putcharEc
  .text._ZN3Lcd8cmpltCmdEv
-                0x000019ee       0x2a ./lcd.o
-                0x000019ee                _ZN3Lcd8cmpltCmdEv
+                0x00001a6e       0x2a ./lcd.o
+                0x00001a6e                _ZN3Lcd8cmpltCmdEv
  .text._ZN3Lcd8drawCharEchhh9_pixColorS0_
-                0x00001a18      0x256 ./lcd.o
-                0x00001a18                _ZN3Lcd8drawCharEchhh9_pixColorS0_
+                0x00001a98      0x24e ./lcd.o
+                0x00001a98                _ZN3Lcd8drawCharEchhh9_pixColorS0_
  .text._ZN3Lcd8drawCharEchhh
-                0x00001c6e       0x78 ./lcd.o
-                0x00001c6e                _ZN3Lcd8drawCharEchhh
+                0x00001ce6       0x78 ./lcd.o
+                0x00001ce6                _ZN3Lcd8drawCharEchhh
  .text._ZN3Lcd7clrScrnEv
-                0x00001ce6       0xf2 ./lcd.o
-                0x00001ce6                _ZN3Lcd7clrScrnEv
+                0x00001d5e       0xf2 ./lcd.o
+                0x00001d5e                _ZN3Lcd7clrScrnEv
  .text._ZN3Lcd4putsEPKc
-                0x00001dd8       0x68 ./lcd.o
-                0x00001dd8                _ZN3Lcd4putsEPKc
- .text._ZN3Lcd4putsEPKc9_pixColor
-                0x00001e40       0xae ./lcd.o
-                0x00001e40                _ZN3Lcd4putsEPKc9_pixColor
+                0x00001e50       0x68 ./lcd.o
+                0x00001e50                _ZN3Lcd4putsEPKc
+ .text._ZN3Lcd4putsEPKc9_pixColorS2_
+                0x00001eb8       0xb2 ./lcd.o
+                0x00001eb8                _ZN3Lcd4putsEPKc9_pixColorS2_
  .text._ZN3Lcd6gotoxyEhh
-                0x00001eee       0x3e ./lcd.o
-                0x00001eee                _ZN3Lcd6gotoxyEhh
+                0x00001f6a       0x3e ./lcd.o
+                0x00001f6a                _ZN3Lcd6gotoxyEhh
  .text._Z8lcd_putccP6__file
-                0x00001f2c       0x26 ./lcd.o
-                0x00001f2c                _Z8lcd_putccP6__file
+                0x00001fa8       0x26 ./lcd.o
+                0x00001fa8                _Z8lcd_putccP6__file
  .text._ZN3LedC2Ev
-                0x00001f52       0x62 ./led.o
-                0x00001f52                _ZN3LedC1Ev
-                0x00001f52                _ZN3LedC2Ev
+                0x00001fce       0x5e ./led.o
+                0x00001fce                _ZN3LedC1Ev
+                0x00001fce                _ZN3LedC2Ev
  .text._ZN3Led8callbackEv
-                0x00001fb4       0x46 ./led.o
-                0x00001fb4                _ZN3Led8callbackEv
+                0x0000202c       0x1e ./led.o
+                0x0000202c                _ZN3Led8callbackEv
  .text._ZN3Led6toggleEv
-                0x00001ffa       0x38 ./led.o
-                0x00001ffa                _ZN3Led6toggleEv
+                0x0000204a       0x38 ./led.o
+                0x0000204a                _ZN3Led6toggleEv
  .text._ZN5ClocknwEj
-                0x00002032       0x20 ./main.o
-                0x00002032                _ZN5ClocknwEj
+                0x00002082       0x20 ./main.o
+                0x00002082                _ZN5ClocknwEj
  .text._ZN3LednwEj
-                0x00002052       0x20 ./main.o
-                0x00002052                _ZN3LednwEj
+                0x000020a2       0x20 ./main.o
+                0x000020a2                _ZN3LednwEj
  .text._ZN3LcdnwEj
-                0x00002072       0x20 ./main.o
-                0x00002072                _ZN3LcdnwEj
+                0x000020c2       0x20 ./main.o
+                0x000020c2                _ZN3LcdnwEj
  .text._ZN8GraphicsnwEj
-                0x00002092       0x20 ./main.o
-                0x00002092                _ZN8GraphicsnwEj
- .text._ZN11ElapsedTimenwEj
-                0x000020b2       0x20 ./main.o
-                0x000020b2                _ZN11ElapsedTimenwEj
+                0x000020e2       0x20 ./main.o
+                0x000020e2                _ZN8GraphicsnwEj
  .text._ZN7EncodernwEj
-                0x000020d2       0x20 ./main.o
-                0x000020d2                _ZN7EncodernwEj
+                0x00002102       0x20 ./main.o
+                0x00002102                _ZN7EncodernwEj
  .text._ZN3vfonwEj
-                0x000020f2       0x20 ./main.o
-                0x000020f2                _ZN3vfonwEj
+                0x00002122       0x20 ./main.o
+                0x00002122                _ZN3vfonwEj
  .text._ZN6paramsnwEj
-                0x00002112       0x20 ./main.o
-                0x00002112                _ZN6paramsnwEj
+                0x00002142       0x20 ./main.o
+                0x00002142                _ZN6paramsnwEj
  .text._ZN8GraphicsC2Ev
-                0x00002132       0x1e ./main.o
-                0x00002132                _ZN8GraphicsC1Ev
-                0x00002132                _ZN8GraphicsC2Ev
- .text.main     0x00002150      0x76c ./main.o
-                0x00002150                main
+                0x00002162       0x1e ./main.o
+                0x00002162                _ZN8GraphicsC1Ev
+                0x00002162                _ZN8GraphicsC2Ev
+ .text.main     0x00002180      0x89a ./main.o
+                0x00002180                main
  .text._Z6memcpyPvPKvj
-                0x000028bc       0x86 ./params.o
-                0x000028bc                _Z6memcpyPvPKvj
- .text._ZN6paramsC2EP3Lcd
-                0x00002942       0x7c ./params.o
-                0x00002942                _ZN6paramsC1EP3Lcd
-                0x00002942                _ZN6paramsC2EP3Lcd
+                0x00002a1a       0x86 ./params.o
+                0x00002a1a                _Z6memcpyPvPKvj
+ .text._ZN6paramsC2EP8Graphics
+                0x00002aa0      0x124 ./params.o
+                0x00002aa0                _ZN6paramsC1EP8Graphics
+                0x00002aa0                _ZN6paramsC2EP8Graphics
+ .text._ZN6params8callbackEv
+                0x00002bc4       0x26 ./params.o
+                0x00002bc4                _ZN6params8callbackEv
  .text._ZN6params10initParamsEP3Lcd
-                0x000029be      0x2d6 ./params.o
-                0x000029be                _ZN6params10initParamsEP3Lcd
+                0x00002bea      0x312 ./params.o
+                0x00002bea                _ZN6params10initParamsEP3Lcd
  .text._ZN6params7getStepEv
-                0x00002c94       0x20 ./params.o
-                0x00002c94                _ZN6params7getStepEv
+                0x00002efc       0x20 ./params.o
+                0x00002efc                _ZN6params7getStepEv
  .text._ZN6params7getBandEv
-                0x00002cb4       0x20 ./params.o
-                0x00002cb4                _ZN6params7getBandEv
+                0x00002f1c       0x20 ./params.o
+                0x00002f1c                _ZN6params7getBandEv
  .text._ZN6params6getVfoEv
-                0x00002cd4       0x20 ./params.o
-                0x00002cd4                _ZN6params6getVfoEv
+                0x00002f3c       0x20 ./params.o
+                0x00002f3c                _ZN6params6getVfoEv
+ .text._ZN6params12getActiveVfoEv
+                0x00002f5c       0x20 ./params.o
+                0x00002f5c                _ZN6params12getActiveVfoEv
  .text._ZN6params7getModeEv
-                0x00002cf4       0x20 ./params.o
-                0x00002cf4                _ZN6params7getModeEv
+                0x00002f7c       0x20 ./params.o
+                0x00002f7c                _ZN6params7getModeEv
  .text._ZN6params7setModeE7_mode_t
-                0x00002d14       0x28 ./params.o
-                0x00002d14                _ZN6params7setModeE7_mode_t
+                0x00002f9c       0x28 ./params.o
+                0x00002f9c                _ZN6params7setModeE7_mode_t
+ .text._ZN6params12setActiveVfoE10vfo_actv_t
+                0x00002fc4       0xfa ./params.o
+                0x00002fc4                _ZN6params12setActiveVfoE10vfo_actv_t
  .text._ZN6params11updateEnterEP7EncoderP2SwP3Lcd
-                0x00002d3c      0x104 ./params.o
-                0x00002d3c                _ZN6params11updateEnterEP7EncoderP2SwP3Lcd
+                0x000030be      0x15e ./params.o
+                0x000030be                _ZN6params11updateEnterEP7EncoderP2SwP3Lcd
  .text._ZN6params6updateEP7EncoderP2SwP3Lcd
-                0x00002e40      0x83e ./params.o
-                0x00002e40                _ZN6params6updateEP7EncoderP2SwP3Lcd
+                0x0000321c      0x88a ./params.o
+                0x0000321c                _ZN6params6updateEP7EncoderP2SwP3Lcd
  .text._ZN2SwC2Ehh
-                0x0000367e      0x12a ./sw.o
-                0x0000367e                _ZN2SwC2Ehh
-                0x0000367e                _ZN2SwC1Ehh
+                0x00003aa6      0x12e ./sw.o
+                0x00003aa6                _ZN2SwC2Ehh
+                0x00003aa6                _ZN2SwC1Ehh
  .text._ZN2Sw6updateEv
-                0x000037a8       0xd2 ./sw.o
-                0x000037a8                _ZN2Sw6updateEv
+                0x00003bd4       0xce ./sw.o
+                0x00003bd4                _ZN2Sw6updateEv
  .text._ZN2Sw8hasEventEv
-                0x0000387a       0x2a ./sw.o
-                0x0000387a                _ZN2Sw8hasEventEv
+                0x00003ca2       0x2a ./sw.o
+                0x00003ca2                _ZN2Sw8hasEventEv
  .text._ZN2Sw8getEventEv
-                0x000038a4       0x20 ./sw.o
-                0x000038a4                _ZN2Sw8getEventEv
+                0x00003ccc       0x20 ./sw.o
+                0x00003ccc                _ZN2Sw8getEventEv
  .text._ZN2Sw10clearEventEv
-                0x000038c4       0x20 ./sw.o
-                0x000038c4                _ZN2Sw10clearEventEv
+                0x00003cec       0x20 ./sw.o
+                0x00003cec                _ZN2Sw10clearEventEv
  .text._ZN2Sw8callbackEv
-                0x000038e4       0x1e ./sw.o
-                0x000038e4                _ZN2Sw8callbackEv
+                0x00003d0c       0x1e ./sw.o
+                0x00003d0c                _ZN2Sw8callbackEv
  .text._ZN2Sw8isClosedEv
-                0x00003902       0x36 ./sw.o
-                0x00003902                _ZN2Sw8isClosedEv
+                0x00003d2a       0x36 ./sw.o
+                0x00003d2a                _ZN2Sw8isClosedEv
  .text.uart_init
-                0x00003938       0x34 ./uart.o
-                0x00003938                uart_init
+                0x00003d60       0x34 ./uart.o
+                0x00003d60                uart_init
  .text.uart_getc
-                0x0000396c       0x3a ./uart.o
-                0x0000396c                uart_getc
+                0x00003d94       0x3a ./uart.o
+                0x00003d94                uart_getc
  .text.uart_putc
-                0x000039a6       0x5a ./uart.o
-                0x000039a6                uart_putc
+                0x00003dce       0x5a ./uart.o
+                0x00003dce                uart_putc
  .text._ZN3vfoC2EP7EncoderP13vfoParametersj
-                0x00003a00      0x2a0 ./vfo.o
-                0x00003a00                _ZN3vfoC1EP7EncoderP13vfoParametersj
-                0x00003a00                _ZN3vfoC2EP7EncoderP13vfoParametersj
+                0x00003e28      0x2a0 ./vfo.o
+                0x00003e28                _ZN3vfoC1EP7EncoderP13vfoParametersj
+                0x00003e28                _ZN3vfoC2EP7EncoderP13vfoParametersj
  .text._ZN3vfo6updateEh
-                0x00003ca0      0x2c2 ./vfo.o
-                0x00003ca0                _ZN3vfo6updateEh
+                0x000040c8      0x2c2 ./vfo.o
+                0x000040c8                _ZN3vfo6updateEh
  .text._ZN3vfo9getRxFreqE5_band
-                0x00003f62      0x11c ./vfo.o
-                0x00003f62                _ZN3vfo9getRxFreqE5_band
+                0x0000438a      0x11c ./vfo.o
+                0x0000438a                _ZN3vfo9getRxFreqE5_band
  .text._ZN3vfo9getTxFreqE5_band
-                0x0000407e      0x11e ./vfo.o
-                0x0000407e                _ZN3vfo9getTxFreqE5_band
+                0x000044a6      0x11e ./vfo.o
+                0x000044a6                _ZN3vfo9getTxFreqE5_band
  .text._ZN3vfo7setStepE6step_t
-                0x0000419c       0x5a ./vfo.o
-                0x0000419c                _ZN3vfo7setStepE6step_t
+                0x000045c4       0x5a ./vfo.o
+                0x000045c4                _ZN3vfo7setStepE6step_t
  .text._ZN3vfo13intToString32EmPc
-                0x000041f6      0x3bc ./vfo.o
-                0x000041f6                _ZN3vfo13intToString32EmPc
+                0x0000461e      0x3bc ./vfo.o
+                0x0000461e                _ZN3vfo13intToString32EmPc
  .text._ZN3vfo17formatDisplayFreqEPcS0_
-                0x000045b2      0x100 ./vfo.o
-                0x000045b2                _ZN3vfo17formatDisplayFreqEPcS0_
+                0x000049da      0x100 ./vfo.o
+                0x000049da                _ZN3vfo17formatDisplayFreqEPcS0_
  .text._ZN3vfo16getTxDisplayFreqEPc5_band
-                0x000046b2       0x94 ./vfo.o
-                0x000046b2                _ZN3vfo16getTxDisplayFreqEPc5_band
+                0x00004ada       0x94 ./vfo.o
+                0x00004ada                _ZN3vfo16getTxDisplayFreqEPc5_band
  .text._ZN3vfo7getLineEv
-                0x00004746       0x26 ./vfo.o
-                0x00004746                _ZN3vfo7getLineEv
+                0x00004b6e       0x26 ./vfo.o
+                0x00004b6e                _ZN3vfo7getLineEv
  .text.__cxa_pure_virtual
-                0x0000476c        0xe ./workarounds.o
-                0x0000476c                __cxa_pure_virtual
+                0x00004b94        0xe ./workarounds.o
+                0x00004b94                __cxa_pure_virtual
  .text.libgcc.mul
-                0x0000477a       0x1e c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_mulsi3.o)
-                0x0000477a                __mulsi3
+                0x00004ba2       0x1e c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_mulsi3.o)
+                0x00004ba2                __mulsi3
  .text.libgcc.div
-                0x00004798       0x44 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_udivmodsi4.o)
-                0x00004798                __udivmodsi4
+                0x00004bc0       0x44 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_udivmodsi4.o)
+                0x00004bc0                __udivmodsi4
  .text.libgcc.mul
-                0x000047dc       0x14 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_muluhisi3.o)
-                0x000047dc                __muluhisi3
+                0x00004c04       0x14 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_muluhisi3.o)
+                0x00004c04                __muluhisi3
  .text.libgcc.mul
-                0x000047f0       0x1e c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_umulhisi3.o)
-                0x000047f0                __umulhisi3
+                0x00004c18       0x1e c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_umulhisi3.o)
+                0x00004c18                __umulhisi3
  .text.avr-libc.fplib
-                0x0000480e       0x58 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
-                0x0000480e                __fixunssfsi
+                0x00004c36       0x58 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
+                0x00004c36                __fixunssfsi
  .text.avr-libc.fplib
-                0x00004866       0x7a c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(floatsisf.o)
-                0x00004866                __floatunsisf
-                0x0000486a                __floatsisf
+                0x00004c8e       0x7a c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(floatsisf.o)
+                0x00004c8e                __floatunsisf
+                0x00004c92                __floatsisf
  .text.avr-libc.fplib
-                0x000048e0       0x44 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_split3.o)
-                0x000048e0                __fp_split3
-                0x000048f0                __fp_splitA
+                0x00004d08       0x44 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_split3.o)
+                0x00004d08                __fp_split3
+                0x00004d18                __fp_splitA
  .text.avr-libc.fplib
-                0x00004924        0xe c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_zero.o)
-                0x00004924                __fp_zero
-                0x00004926                __fp_szero
+                0x00004d4c        0xe c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_zero.o)
+                0x00004d4c                __fp_zero
+                0x00004d4e                __fp_szero
  .text.avr-libc.fplib
-                0x00004932        0x4 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(mulsf3.o)
-                0x00004932                __mulsf3
+                0x00004d5a        0x4 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(mulsf3.o)
+                0x00004d5a                __mulsf3
  .text.avr-libc.fplib
-                0x00004936       0xc2 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
-                0x0000494a                __mulsf3x
-                0x0000494e                __mulsf3_pse
+                0x00004d5e       0xc2 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
+                0x00004d72                __mulsf3x
+                0x00004d76                __mulsf3_pse
  .text.avr-libc.fplib
-                0x000049f8        0xc c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_inf.o)
-                0x000049f8                __fp_inf
+                0x00004e20        0xc c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_inf.o)
+                0x00004e20                __fp_inf
  .text.avr-libc.fplib
-                0x00004a04        0x6 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_nan.o)
-                0x00004a04                __fp_nan
+                0x00004e2c        0x6 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_nan.o)
+                0x00004e2c                __fp_nan
  .text.avr-libc.fplib
-                0x00004a0a        0xe c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
-                0x00004a0a                __fp_pscA
+                0x00004e32        0xe c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
+                0x00004e32                __fp_pscA
  .text.avr-libc.fplib
-                0x00004a18        0xe c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
-                0x00004a18                __fp_pscB
+                0x00004e40        0xe c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
+                0x00004e40                __fp_pscB
  .text.avr-libc.fplib
-                0x00004a26       0x22 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_round.o)
-                0x00004a26                __fp_round
+                0x00004e4e       0x22 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_round.o)
+                0x00004e4e                __fp_round
  .text.avr-libc
-                0x00004a48      0x25a c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(malloc.o)
-                0x00004a48                malloc
-                0x00004b72                free
+                0x00004e70      0x25a c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(malloc.o)
+                0x00004e70                malloc
+                0x00004f9a                free
  .text.avr-libc
-                0x00004ca2       0x12 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strlen.o)
-                0x00004ca2                strlen
+                0x000050ca       0x12 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strlen.o)
+                0x000050ca                strlen
  .text.avr-libc
-                0x00004cb4       0x1e c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fprintf.o)
-                0x00004cb4                fprintf
+                0x000050dc       0x64 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fwrite.o)
+                0x000050dc                fwrite
  .text.avr-libc
-                0x00004cd2       0x60 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(puts.o)
-                0x00004cd2                puts
+                0x00005140       0x60 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(puts.o)
+                0x00005140                puts
  .text.avr-libc
-                0x00004d32       0x40 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(sprintf.o)
-                0x00004d32                sprintf
+                0x000051a0       0x40 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(sprintf.o)
+                0x000051a0                sprintf
  .text.avr-libc
-                0x00004d72      0x386 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
-                0x00004d72                vfprintf
+                0x000051e0      0x386 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                0x000051e0                vfprintf
  .text.avr-libc
-                0x000050f8       0x16 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
-                0x000050f8                strnlen_P
+                0x00005566       0x16 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+                0x00005566                strnlen_P
  .text.avr-libc
-                0x0000510e       0x16 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strnlen.o)
-                0x0000510e                strnlen
+                0x0000557c       0x16 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strnlen.o)
+                0x0000557c                strnlen
  .text.avr-libc
-                0x00005124       0x70 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fputc.o)
-                0x00005124                fputc
+                0x00005592       0x70 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fputc.o)
+                0x00005592                fputc
  .text.avr-libc
-                0x00005194       0xbc c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
-                0x00005194                __ultoa_invert
+                0x00005602       0xbc c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+                0x00005602                __ultoa_invert
  .text.libgcc.prologue
-                0x00005250       0x38 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_prologue.o)
-                0x00005250                __prologue_saves__
+                0x000056be       0x38 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_prologue.o)
+                0x000056be                __prologue_saves__
  .text.libgcc.prologue
-                0x00005288       0x36 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_epilogue.o)
-                0x00005288                __epilogue_restores__
-                0x000052be                . = ALIGN (0x2)
+                0x000056f6       0x36 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_epilogue.o)
+                0x000056f6                __epilogue_restores__
+                0x0000572c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000052be        0x0 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
-                0x000052be                _exit
-                0x000052be                exit
+ .fini9         0x0000572c        0x0 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                0x0000572c                _exit
+                0x0000572c                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -983,11 +1020,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000052be        0x4 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000572c        0x4 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000052c2                _etext = .
+                0x00005730                _etext = .
 
-.data           0x00800100      0x21c load address 0x000052c2
+.data           0x00800100      0x212 load address 0x00005730
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x6 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(malloc.o)
@@ -1020,88 +1057,91 @@ END GROUP
  .data.default_param_display
                 0x00800150       0x42 ./params.o
                 0x00800150                default_param_display
- .data.fg_red   0x00800192        0x3 ./params.o
-                0x00800192                fg_red
- .data.fg_white
-                0x00800195        0x3 ./params.o
-                0x00800195                fg_white
  .data.vfoDataConst
-                0x00800198       0xa2 ./vfo.o
-                0x00800198                vfoDataConst
+                0x00800192       0xa2 ./vfo.o
+                0x00800192                vfoDataConst
  *(.rodata)
- .rodata        0x0080023a       0x33 ./main.o
- .rodata        0x0080026d       0x78 ./params.o
+ .rodata        0x00800234       0x30 ./main.o
+ .rodata        0x00800264       0x78 ./params.o
  *(.rodata*)
- .rodata._ZTV11ElapsedTime
-                0x008002e5        0x6 ./ElapsedTime.o
-                0x008002e5                _ZTV11ElapsedTime
  .rodata._ZTV8Callback
-                0x008002eb        0x6 ./ElapsedTime.o
-                0x008002eb                _ZTV8Callback
+                0x008002dc        0x6 ./ElapsedTime.o
+                0x008002dc                _ZTV8Callback
  .rodata._ZTV7Encoder
-                0x008002f1        0x6 ./Encoder.o
-                0x008002f1                _ZTV7Encoder
+                0x008002e2        0x6 ./Encoder.o
+                0x008002e2                _ZTV7Encoder
  .rodata._ZTV3Led
-                0x008002f7        0x6 ./led.o
-                0x008002f7                _ZTV3Led
+                0x008002e8        0x6 ./led.o
+                0x008002e8                _ZTV3Led
+ .rodata._ZTV6params
+                0x008002ee        0x6 ./params.o
+                0x008002ee                _ZTV6params
  .rodata._ZTV2Sw
-                0x008002fd        0x6 ./sw.o
-                0x008002fd                _ZTV2Sw
+                0x008002f4        0x6 ./sw.o
+                0x008002f4                _ZTV2Sw
  .rodata._ZL11step_values
-                0x00800303       0x18 ./vfo.o
+                0x008002fa       0x18 ./vfo.o
  *(.gnu.linkonce.d*)
-                0x0080031c                . = ALIGN (0x2)
- *fill*         0x0080031b        0x1 
-                0x0080031c                _edata = .
-                0x0080031c                PROVIDE (__data_end, .)
+                0x00800312                . = ALIGN (0x2)
+                0x00800312                _edata = .
+                0x00800312                PROVIDE (__data_end, .)
 
-.bss            0x0080031c       0x46
-                0x0080031c                PROVIDE (__bss_start, .)
+.bss            0x00800312       0x56
+                0x00800312                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  .bss._ZN5Clock8sysclockE
-                0x0080031c        0x4 ./clock.o
-                0x0080031c                _ZN5Clock8sysclockE
+                0x00800312        0x4 ./clock.o
+                0x00800312                _ZN5Clock8sysclockE
  .bss._ZN5Clock9delayTimeE
-                0x00800320        0x4 ./clock.o
-                0x00800320                _ZN5Clock9delayTimeE
+                0x00800316        0x4 ./clock.o
+                0x00800316                _ZN5Clock9delayTimeE
  .bss._ZN5Clock5countE
-                0x00800324        0x1 ./clock.o
-                0x00800324                _ZN5Clock5countE
+                0x0080031a        0x1 ./clock.o
+                0x0080031a                _ZN5Clock5countE
  .bss._ZN5Clock13periodicTasksE
-                0x00800325       0x20 ./clock.o
-                0x00800325                _ZN5Clock13periodicTasksE
+                0x0080031b       0x10 ./clock.o
+                0x0080031b                _ZN5Clock13periodicTasksE
  .bss._ZN5Clock11singleTasksE
-                0x00800345        0x8 ./clock.o
-                0x00800345                _ZN5Clock11singleTasksE
+                0x0080032b        0x4 ./clock.o
+                0x0080032b                _ZN5Clock11singleTasksE
+ .bss._ZN5Clock10reloadTimeE
+                0x0080032f       0x10 ./clock.o
+                0x0080032f                _ZN5Clock10reloadTimeE
+ .bss._ZN5Clock16periodicTimeLeftE
+                0x0080033f       0x10 ./clock.o
+                0x0080033f                _ZN5Clock16periodicTimeLeftE
+ .bss._ZN5Clock15oneshotTimeLeftE
+                0x0080034f        0x4 ./clock.o
+                0x0080034f                _ZN5Clock15oneshotTimeLeftE
  .bss._ZN3Lcd7fgColorE
-                0x0080034d        0x3 ./lcd.o
-                0x0080034d                _ZN3Lcd7fgColorE
+                0x00800353        0x3 ./lcd.o
+                0x00800353                _ZN3Lcd7fgColorE
  .bss._ZN3Lcd7bgColorE
-                0x00800350        0x3 ./lcd.o
-                0x00800350                _ZN3Lcd7bgColorE
+                0x00800356        0x3 ./lcd.o
+                0x00800356                _ZN3Lcd7bgColorE
  .bss._ZN3Lcd6cursorE
-                0x00800353        0x4 ./lcd.o
-                0x00800353                _ZN3Lcd6cursorE
+                0x00800359        0x4 ./lcd.o
+                0x00800359                _ZN3Lcd6cursorE
  .bss._ZN3Lcd14lcdInitializedE
-                0x00800357        0x1 ./lcd.o
-                0x00800357                _ZN3Lcd14lcdInitializedE
+                0x0080035d        0x1 ./lcd.o
+                0x0080035d                _ZN3Lcd14lcdInitializedE
  *(COMMON)
- COMMON         0x00800358        0x4 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(malloc.o)
-                0x00800358                __brkval
-                0x0080035a                __flp
- COMMON         0x0080035c        0x6 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(iob.o)
-                0x0080035c                __iob
-                0x00800362                PROVIDE (__bss_end, .)
-                0x000052c2                __data_load_start = LOADADDR (.data)
-                0x000054de                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x0080035e        0x4 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(malloc.o)
+                0x0080035e                __brkval
+                0x00800360                __flp
+ COMMON         0x00800362        0x6 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(iob.o)
+                0x00800362                __iob
+                0x00800368                PROVIDE (__bss_end, .)
+                0x00005730                __data_load_start = LOADADDR (.data)
+                0x00005942                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800362        0x0
+.noinit         0x00800368        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x00800362                _end = .
-                0x00800362                PROVIDE (__heap_start, .)
+                0x00800368                _end = .
+                0x00800368                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -1122,39 +1162,40 @@ END GROUP
 .user_signatures
  *(.user_signatures*)
 
-.stab           0x00000000     0x9108
+.stab           0x00000000     0x9474
  *(.stab)
- .stab          0x00000000      0x6fc ./ElapsedTime.o
- .stab          0x000006fc      0xbf4 ./Encoder.o
+ .stab          0x00000000      0x5c4 ./ElapsedTime.o
+                                0x6d8 (size before relaxing)
+ .stab          0x000005c4      0xbf4 ./Encoder.o
                                 0xc3c (size before relaxing)
- .stab          0x000012f0      0x978 ./clock.o
-                                0xa5c (size before relaxing)
- .stab          0x00001c68      0x780 ./dds.o
-                                0x78c (size before relaxing)
- .stab          0x000023e8      0x108 ./font.o
+ .stab          0x000011b8      0xaec ./clock.o
+                                0xbb8 (size before relaxing)
+ .stab          0x00001ca4      0x840 ./dds.o
+                                0x84c (size before relaxing)
+ .stab          0x000024e4      0x108 ./font.o
                                 0x114 (size before relaxing)
- .stab          0x000024f0      0x924 ./graphics.o
-                                0xa5c (size before relaxing)
- .stab          0x00002e14     0x1788 ./lcd.o
-                               0x19c8 (size before relaxing)
- .stab          0x0000459c      0x684 ./led.o
-                                0x804 (size before relaxing)
- .stab          0x00004c20     0x1158 ./main.o
-                               0x11a0 (size before relaxing)
- .stab          0x00005d78     0x12f0 ./params.o
-                               0x1338 (size before relaxing)
- .stab          0x00007068      0x990 ./sw.o
-                                0x9d8 (size before relaxing)
- .stab          0x000079f8      0x5f4 ./uart.o
-                                0x744 (size before relaxing)
- .stab          0x00007fec      0xde0 ./vfo.o
-                                0xec4 (size before relaxing)
- .stab          0x00008dcc      0x33c ./workarounds.o
+ .stab          0x000025ec      0x93c ./graphics.o
+                                0xd68 (size before relaxing)
+ .stab          0x00002f28     0x1764 ./lcd.o
+                               0x1a10 (size before relaxing)
+ .stab          0x0000468c      0x654 ./led.o
+                                0x7d4 (size before relaxing)
+ .stab          0x00004ce0     0x1224 ./main.o
+                               0x126c (size before relaxing)
+ .stab          0x00005f04     0x14c4 ./params.o
+                               0x15d8 (size before relaxing)
+ .stab          0x000073c8      0x9a8 ./sw.o
+                                0x9f0 (size before relaxing)
+ .stab          0x00007d70      0x60c ./uart.o
+                                0x75c (size before relaxing)
+ .stab          0x0000837c      0xdbc ./vfo.o
+                                0xf0c (size before relaxing)
+ .stab          0x00009138      0x33c ./workarounds.o
                                 0x3cc (size before relaxing)
 
-.stabstr        0x00000000     0x5255
+.stabstr        0x00000000     0x4d2b
  *(.stabstr)
- .stabstr       0x00000000     0x5255 ./ElapsedTime.o
+ .stabstr       0x00000000     0x4d2b ./ElapsedTime.o
 
 .stab.excl
  *(.stab.excl)
@@ -1168,30 +1209,29 @@ END GROUP
 .stab.indexstr
  *(.stab.indexstr)
 
-.comment        0x00000000       0x22
+.comment        0x00000000       0x11
  *(.comment)
  .comment       0x00000000       0x11 ./ElapsedTime.o
                                  0x12 (size before relaxing)
- .comment       0x00000011       0x11 ./Encoder.o
-                                 0x12 (size before relaxing)
- .comment       0x00000022       0x12 ./clock.o
- .comment       0x00000022       0x12 ./dds.o
- .comment       0x00000022       0x12 ./graphics.o
- .comment       0x00000022       0x12 ./lcd.o
- .comment       0x00000022       0x12 ./led.o
- .comment       0x00000022       0x12 ./main.o
- .comment       0x00000022       0x12 ./params.o
- .comment       0x00000022       0x12 ./sw.o
- .comment       0x00000022       0x12 ./uart.o
- .comment       0x00000022       0x12 ./vfo.o
- .comment       0x00000022       0x12 ./workarounds.o
- .comment       0x00000022       0x12 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(malloc.o)
- .comment       0x00000022       0x12 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fprintf.o)
- .comment       0x00000022       0x12 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(iob.o)
- .comment       0x00000022       0x12 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(puts.o)
- .comment       0x00000022       0x12 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(sprintf.o)
- .comment       0x00000022       0x12 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
- .comment       0x00000022       0x12 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fputc.o)
+ .comment       0x00000011       0x12 ./Encoder.o
+ .comment       0x00000011       0x12 ./clock.o
+ .comment       0x00000011       0x12 ./dds.o
+ .comment       0x00000011       0x12 ./graphics.o
+ .comment       0x00000011       0x12 ./lcd.o
+ .comment       0x00000011       0x12 ./led.o
+ .comment       0x00000011       0x12 ./main.o
+ .comment       0x00000011       0x12 ./params.o
+ .comment       0x00000011       0x12 ./sw.o
+ .comment       0x00000011       0x12 ./uart.o
+ .comment       0x00000011       0x12 ./vfo.o
+ .comment       0x00000011       0x12 ./workarounds.o
+ .comment       0x00000011       0x12 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(malloc.o)
+ .comment       0x00000011       0x12 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fwrite.o)
+ .comment       0x00000011       0x12 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(iob.o)
+ .comment       0x00000011       0x12 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(puts.o)
+ .comment       0x00000011       0x12 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(sprintf.o)
+ .comment       0x00000011       0x12 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+ .comment       0x00000011       0x12 c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fputc.o)
 
 .note.gnu.avr.deviceinfo
                 0x00000000       0x40
@@ -1278,12 +1318,9 @@ _Z7usecDlyi                                       ./clock.o
 _Z8lcd_putccP6__file                              ./lcd.o
                                                   ./main.o
 _ZN11ElapsedTime7expiredEv                        ./ElapsedTime.o
-                                                  ./main.o
 _ZN11ElapsedTime8callbackEv                       ./ElapsedTime.o
-_ZN11ElapsedTimeC1Eh                              ./ElapsedTime.o
-                                                  ./main.o
-_ZN11ElapsedTimeC2Eh                              ./ElapsedTime.o
-_ZN11ElapsedTimenwEj                              ./main.o
+_ZN11ElapsedTimeC1Ej                              ./ElapsedTime.o
+_ZN11ElapsedTimeC2Ej                              ./ElapsedTime.o
 _ZN2Sw10clearEventEv                              ./sw.o
                                                   ./params.o
                                                   ./main.o
@@ -1317,6 +1354,7 @@ _ZN3Lcd3offEv                                     ./lcd.o
 _ZN3Lcd4putsEPKc                                  ./lcd.o
                                                   ./main.o
 _ZN3Lcd4putsEPKc9_pixColor                        ./lcd.o
+_ZN3Lcd4putsEPKc9_pixColorS2_                     ./lcd.o
                                                   ./params.o
 _ZN3Lcd5resetEv                                   ./lcd.o
 _ZN3Lcd6clrEolEv                                  ./lcd.o
@@ -1369,14 +1407,22 @@ _ZN3vfo9getRxFreqE5_band                          ./vfo.o
                                                   ./main.o
 _ZN3vfo9getTxFreqE5_band                          ./vfo.o
                                                   ./main.o
+_ZN3vfo9setActVfoE10vfo_actv_t                    ./vfo.o
 _ZN3vfoC1EP7EncoderP13vfoParametersj              ./vfo.o
                                                   ./main.o
 _ZN3vfoC2EP7EncoderP13vfoParametersj              ./vfo.o
 _ZN3vfonwEj                                       ./main.o
+_ZN5Clock10reloadTimeE                            ./clock.o
 _ZN5Clock11singleTasksE                           ./clock.o
-_ZN5Clock12registerOnceEP8Callback                ./clock.o
+_ZN5Clock13cancelOneshotEi                        ./clock.o
+                                                  ./params.o
 _ZN5Clock13periodicTasksE                         ./clock.o
-_ZN5Clock16registerPeriodicEP8Callback            ./clock.o
+_ZN5Clock14cancelPeriodicEi                       ./clock.o
+_ZN5Clock15oneshotTimeLeftE                       ./clock.o
+_ZN5Clock15registerOneshotEP8Callbackj            ./clock.o
+                                                  ./params.o
+_ZN5Clock16periodicTimeLeftE                      ./clock.o
+_ZN5Clock16registerPeriodicEP8Callbackj           ./clock.o
                                                   ./sw.o
                                                   ./led.o
                                                   ./Encoder.o
@@ -1386,7 +1432,6 @@ _ZN5Clock5countE                                  ./clock.o
 _ZN5Clock5delayEm                                 ./clock.o
                                                   ./lcd.o
 _ZN5Clock8getTicksEv                              ./clock.o
-                                                  ./params.o
 _ZN5Clock8sysclockE                               ./clock.o
 _ZN5Clock9delayTimeE                              ./clock.o
 _ZN5ClockC1Ev                                     ./clock.o
@@ -1399,9 +1444,13 @@ _ZN6params10initParamsEP3Lcd                      ./params.o
 _ZN6params11updateEnterEP7EncoderP2SwP3Lcd        ./params.o
                                                   ./main.o
 _ZN6params12getActiveVfoEv                        ./params.o
+                                                  ./main.o
+_ZN6params12setActiveVfoE10vfo_actv_t             ./params.o
+                                                  ./main.o
 _ZN6params6getVfoEv                               ./params.o
                                                   ./main.o
 _ZN6params6updateEP7EncoderP2SwP3Lcd              ./params.o
+                                                  ./main.o
 _ZN6params7getBandEv                              ./params.o
                                                   ./main.o
 _ZN6params7getModeEv                              ./params.o
@@ -1410,9 +1459,10 @@ _ZN6params7getStepEv                              ./params.o
                                                   ./main.o
 _ZN6params7setModeE7_mode_t                       ./params.o
                                                   ./main.o
-_ZN6paramsC1EP3Lcd                                ./params.o
+_ZN6params8callbackEv                             ./params.o
+_ZN6paramsC1EP8Graphics                           ./params.o
                                                   ./main.o
-_ZN6paramsC2EP3Lcd                                ./params.o
+_ZN6paramsC2EP8Graphics                           ./params.o
 _ZN6paramsnwEj                                    ./main.o
 _ZN7Encoder10clearEventEv                         ./Encoder.o
                                                   ./params.o
@@ -1438,15 +1488,18 @@ _ZN7EncoderC2Ehhh                                 ./Encoder.o
 _ZN7EncodernwEj                                   ./main.o
 _ZN8CallbackC1Ev                                  ./ElapsedTime.o
                                                   ./sw.o
+                                                  ./params.o
                                                   ./led.o
                                                   ./Encoder.o
 _ZN8CallbackC2Ev                                  ./ElapsedTime.o
                                                   ./sw.o
+                                                  ./params.o
                                                   ./led.o
                                                   ./Encoder.o
 _ZN8Graphics10draw2xCharEchh                      ./graphics.o
 _ZN8Graphics10draw2xCharEchh9_pixColorS0_         ./graphics.o
                                                   ./main.o
+_ZN8Graphics4rectE7_pixpsnjj9_pixColor            ./graphics.o
 _ZN8Graphics6puts2xEPchh                          ./graphics.o
 _ZN8GraphicsC1Ev                                  ./main.o
 _ZN8GraphicsC2Ev                                  ./main.o
@@ -1454,11 +1507,15 @@ _ZN8GraphicsnwEj                                  ./main.o
 _ZTV11ElapsedTime                                 ./ElapsedTime.o
 _ZTV2Sw                                           ./sw.o
 _ZTV3Led                                          ./led.o
+_ZTV6params                                       ./params.o
 _ZTV7Encoder                                      ./Encoder.o
 _ZTV8Callback                                     ./ElapsedTime.o
                                                   ./sw.o
+                                                  ./params.o
                                                   ./led.o
                                                   ./Encoder.o
+_ZppR6_param                                      ./params.o
+_ZppR6_parami                                     ./params.o
 __FUSE_REGION_LENGTH__                            c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
 __bad_interrupt                                   c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
 __brkval                                          c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(malloc.o)
@@ -1469,6 +1526,7 @@ __cxa_guard_acquire                               ./workarounds.o
 __cxa_guard_release                               ./workarounds.o
 __cxa_pure_virtual                                ./workarounds.o
                                                   ./sw.o
+                                                  ./params.o
                                                   ./led.o
                                                   ./Encoder.o
                                                   ./ElapsedTime.o
@@ -1492,7 +1550,7 @@ __do_copy_data                                    c:/program files (x86)/arduino
 __epilogue_restores__                             c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_epilogue.o)
                                                   c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
                                                   c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(sprintf.o)
-                                                  c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fprintf.o)
+                                                  c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fwrite.o)
 __fixunssfsi                                      c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
                                                   ./dds.o
 __floatsisf                                       c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(floatsisf.o)
@@ -1540,7 +1598,7 @@ __muluhisi3                                       c:/program files (x86)/arduino
 __prologue_saves__                                c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_prologue.o)
                                                   c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
                                                   c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(sprintf.o)
-                                                  c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fprintf.o)
+                                                  c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fwrite.o)
 __stack                                           c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
 __udivmodsi4                                      c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_udivmodsi4.o)
                                                   ./vfo.o
@@ -1550,8 +1608,7 @@ __umulhisi3                                       c:/program files (x86)/arduino
                                                   c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_muluhisi3.o)
 __vector_1                                        c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
 __vector_10                                       c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
-__vector_11                                       ./clock.o
-                                                  c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_11                                       c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
 __vector_12                                       c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
 __vector_13                                       c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
 __vector_14                                       c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
@@ -1571,7 +1628,8 @@ __vector_3                                        c:/program files (x86)/arduino
 __vector_4                                        c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
 __vector_5                                        c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
 __vector_6                                        c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
-__vector_7                                        c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
+__vector_7                                        ./clock.o
+                                                  c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
 __vector_8                                        c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
 __vector_9                                        c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
 __vector_default                                  c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
@@ -1586,13 +1644,11 @@ dds                                               ./dds.o
 default_param_display                             ./params.o
 exit                                              c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
                                                   c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
-fg_red                                            ./params.o
-fg_white                                          ./params.o
-fprintf                                           c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fprintf.o)
-                                                  ./main.o
 fputc                                             c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fputc.o)
                                                   c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
 free                                              c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(malloc.o)
+fwrite                                            c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fwrite.o)
+                                                  ./main.o
 hasChar                                           ./uart.o
 key_strings                                       ./params.o
 lcd_str                                           ./main.o
@@ -1628,4 +1684,3 @@ vfo_strings                                       ./params.o
 vfoact_strings                                    ./params.o
 vfprintf                                          c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
                                                   c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(sprintf.o)
-                                                  c:/program files (x86)/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(fprintf.o)
