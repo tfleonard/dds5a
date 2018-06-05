@@ -62,9 +62,9 @@ FILE *lcdfp = &lcd_str;
 int main(void) {
 
 volatile uint8_t reg;
-uint8_t secs = 0;
-uint8_t mins = 0;
-uint8_t hours = 0;
+//uint8_t secs = 0;
+//uint8_t mins = 0;
+//uint8_t hours = 0;
 Clock *cl = new Clock();
 
 #ifndef LCD_TT
@@ -74,12 +74,12 @@ Led *led = new Led();
 Lcd *l = new Lcd();
 Graphics *g = new Graphics();
 
-int pass = 0;
+//int pass = 0;
 pixColor  f = GREEN;
-pixColor pix_green = GREEN;
+//pixColor pix_green = GREEN;
 pixColor  b = LTGREEN;
 pixColor  fg_grey = GRAY;
-pixColor pix_blk = BLACK;
+//pixColor pix_blk = BLACK;
 
 volatile float freq;
 char buf[16];
@@ -173,7 +173,7 @@ mode_t curMode;
 				freq = curVfo->getRxFreq(band);
 				dds(freq);
 			} else {
-				freq - curVfo->getTxFreq(band);
+				freq = curVfo->getTxFreq(band);
 				dds(freq);
 			}
 			curMode = newMode;
