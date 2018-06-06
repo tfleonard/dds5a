@@ -23,7 +23,7 @@
  *							has listbox defs, but still lacks a base
  *							listbox class that the template versions
  *							should sub-class.
- *	1.3			5/26/18		Remove Elapsed Time task and clock update - causes unstable  
+ *	5/26/18		0.4			Remove Elapsed Time task and clock update - causes unstable
  *							keying due to too much time spent in fprintf.
  *							DO NOT USE PRINTF IN ANY CRITICAL PATH!
  *
@@ -50,7 +50,8 @@
 #include "vfo.h"
 #include "params.h"
 
-
+// uncomment the follwoing line to enable the elapsed time counter
+// #define SHOW_ELAPSED_TIME 1
 
 using namespace std;
 
@@ -62,9 +63,11 @@ FILE *lcdfp = &lcd_str;
 int main(void) {
 
 volatile uint8_t reg;
-//uint8_t secs = 0;
-//uint8_t mins = 0;
-//uint8_t hours = 0;
+#ifdef SHOW_ELAPSED_TIME
+uint8_t secs = 0;
+uint8_t mins = 0;
+uint8_t hours = 0;
+#endif
 Clock *cl = new Clock();
 
 #ifndef LCD_TT
@@ -74,12 +77,9 @@ Led *led = new Led();
 Lcd *l = new Lcd();
 Graphics *g = new Graphics();
 
-//int pass = 0;
 pixColor  f = GREEN;
-//pixColor pix_green = GREEN;
 pixColor  b = LTGREEN;
 pixColor  fg_grey = GRAY;
-//pixColor pix_blk = BLACK;
 
 volatile float freq;
 char buf[16];
@@ -103,7 +103,9 @@ mode_t curMode;
 	Sw *dot = new Sw(DOT, PORTC_ADR);
 	Sw *dash = new Sw(DASH, PORTC_ADR);
 	Sw *pb = new Sw(PB, PORTD_ADR);
-//	ElapsedTime *et = new ElapsedTime(100);
+#ifdef SHOW_ELAPSED_TIME
+	ElapsedTime *et = new ElapsedTime(100);
+#endif
 	Encoder *enc = new Encoder(ENCA, ENCB, PORTB_ADR);
 
 	band_t band = BAND_40;
@@ -211,10 +213,8 @@ mode_t curMode;
 						uint16_t line;
 						curVfo->update(band);
 						enc->clearEvent();
-
-	freq = curVfo->getTxFreq(band);
-	dds(freq);
-
+						freq = curVfo->getTxFreq(band);
+						dds(freq);
 						curVfo->getTxDisplayFreq(buf, band);
 						line = curVfo->getLine();
 						for (size_t i = 0; i < strlen(buf); i++) {
@@ -255,7 +255,7 @@ mode_t curMode;
 			l->gotoxy(9,0);
 			l->puts(buf);
 		}
-#if 0
+#if SHOW_ELAPSED_TIME
 		if (et->expired()) {
 			secs++;
 			if (secs > 59) {
