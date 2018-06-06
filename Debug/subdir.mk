@@ -3,16 +3,16 @@
 ################################################################################
 
 # Add inputs and outputs from these tool invocations to the build variables 
-C_SRCS += \
-../dds.c 
-
 CPP_SRCS += \
 ../ElapsedTime.cpp \
 ../Encoder.cpp \
 ../clock.cpp \
+../dds.cpp \
 ../graphics.cpp \
+../keyer.cpp \
 ../lcd.cpp \
 ../led.cpp \
+../listbox.cpp \
 ../main.cpp \
 ../params.cpp \
 ../sw.cpp \
@@ -23,9 +23,6 @@ CPP_SRCS += \
 S_UPPER_SRCS += \
 ../font.S 
 
-C_DEPS += \
-./dds.d 
-
 OBJS += \
 ./ElapsedTime.o \
 ./Encoder.o \
@@ -33,8 +30,10 @@ OBJS += \
 ./dds.o \
 ./font.o \
 ./graphics.o \
+./keyer.o \
 ./lcd.o \
 ./led.o \
+./listbox.o \
 ./main.o \
 ./params.o \
 ./sw.o \
@@ -49,9 +48,12 @@ CPP_DEPS += \
 ./ElapsedTime.d \
 ./Encoder.d \
 ./clock.d \
+./dds.d \
 ./graphics.d \
+./keyer.d \
 ./lcd.d \
 ./led.d \
+./listbox.d \
 ./main.d \
 ./params.d \
 ./sw.d \
@@ -65,13 +67,6 @@ CPP_DEPS += \
 	@echo 'Building file: $<'
 	@echo 'Invoking: AVR C++ Compiler'
 	avr-g++ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -funsigned-char -funsigned-bitfields -fno-exceptions -std=c++11 -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -c -o "$@" "$<"
-	@echo 'Finished building: $<'
-	@echo ' '
-
-%.o: ../%.c
-	@echo 'Building file: $<'
-	@echo 'Invoking: AVR Compiler'
-	avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

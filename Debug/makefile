@@ -30,6 +30,12 @@ endif
 ifneq ($(strip $(S_DEPS)),)
 -include $(S_DEPS)
 endif
+ifneq ($(strip $(INO_DEPS)),)
+-include $(INO_DEPS)
+endif
+ifneq ($(strip $(PDE_DEPS)),)
+-include $(PDE_DEPS)
+endif
 ifneq ($(strip $(S_UPPER_DEPS)),)
 -include $(S_UPPER_DEPS)
 endif
@@ -70,13 +76,13 @@ dds5a.lss: dds5a.elf
 
 sizedummy: dds5a.elf
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega328p dds5a.elf
+	-avr-size --format=berkeley -t dds5a.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(C_UPPER_DEPS)$(S_DEPS)$(LSS)$(C_DEPS)$(CC_DEPS)$(ELFS)$(C++_DEPS)$(OBJS)$(CXX_DEPS)$(ASM_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(CPP_DEPS) dds5a.elf
+	-$(RM) $(C_UPPER_DEPS)$(S_DEPS)$(PDE_DEPS)$(LSS)$(C_DEPS)$(CC_DEPS)$(ELFS)$(C++_DEPS)$(OBJS)$(CXX_DEPS)$(ASM_DEPS)$(INO_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(CPP_DEPS) dds5a.elf
 	-@echo ' '
 
 secondary-outputs: $(LSS) $(SIZEDUMMY)
