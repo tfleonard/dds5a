@@ -15,7 +15,9 @@ CPP_SRCS += \
 ../listbox.cpp \
 ../main.cpp \
 ../params.cpp \
+../relay.cpp \
 ../sw.cpp \
+../timer.cpp \
 ../uart.cpp \
 ../vfo.cpp \
 ../workarounds.cpp 
@@ -36,7 +38,9 @@ OBJS += \
 ./listbox.o \
 ./main.o \
 ./params.o \
+./relay.o \
 ./sw.o \
+./timer.o \
 ./uart.o \
 ./vfo.o \
 ./workarounds.o 
@@ -56,7 +60,9 @@ CPP_DEPS += \
 ./listbox.d \
 ./main.d \
 ./params.d \
+./relay.d \
 ./sw.d \
+./timer.d \
 ./uart.d \
 ./vfo.d \
 ./workarounds.d 

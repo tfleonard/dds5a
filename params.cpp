@@ -24,8 +24,7 @@
  #include "Encoder.h"
  #include "vfo.h"
  #include "params.h"
-
-
+#include "listbox.h"
 
 
 const char *band_strings[END_OF_BAND]  {
@@ -39,6 +38,17 @@ const char *band_strings[END_OF_BAND]  {
 	"12 ",
 	"10 "
 };
+
+
+
+list_info_t band_lb = {
+		{6,12},
+		"BAND ",
+		{6,17},
+		band_strings,
+		9
+};
+
 
 
 const char *step_strings[END_OF_STEP] {
@@ -217,6 +227,16 @@ mode_t	params::getMode(void) {
 
 void	params::setMode(mode_t newMode) {
 	mode = newMode;
+}
+
+
+uint8_t params::getSpeed(void) {
+	return speed;
+}
+	
+
+key_t params::getKey(void) {
+	return key;
 }
 
 void params::setActiveVfo(vfo_actv_t rxtx) {

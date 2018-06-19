@@ -193,6 +193,12 @@
     <Compile Include="graphics.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="keyer.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="keyer.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="lcd.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -214,6 +220,12 @@
     <Compile Include="params.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="relay.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="relay.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="ST7735.h">
       <SubType>compile</SubType>
     </Compile>
@@ -221,6 +233,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="sw.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="timer.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="timer.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="uart.cpp">

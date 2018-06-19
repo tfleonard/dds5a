@@ -1,6 +1,6 @@
 keyer.o: ../keyer.cpp ../clock.h ../Callback.h ../sw.h ../Events.h \
  ../Encoder.h ../vfo.h ../lcd.h ../colors.h ../graphics.h ../params.h \
- ../keyer.h
+ ../relay.h ../keyer.h ../timer.h
 
 ../clock.h:
 
@@ -22,4 +22,8 @@ keyer.o: ../keyer.cpp ../clock.h ../Callback.h ../sw.h ../Events.h \
 
 ../params.h:
 
+../relay.h:
+
 ../keyer.h:
+
+../timer.h:

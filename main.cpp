@@ -49,6 +49,9 @@
 #include "Encoder.h"
 #include "vfo.h"
 #include "params.h"
+#include "timer.h"
+#include "relay.h"
+#include "keyer.h"
 
 // uncomment the follwoing line to enable the elapsed time counter
 // #define SHOW_ELAPSED_TIME 1
@@ -69,6 +72,7 @@ uint8_t mins = 0;
 uint8_t hours = 0;
 #endif
 Clock *cl = new Clock();
+Timer *tmr = new Timer();
 
 #ifndef LCD_TT
 Led *led = new Led();
@@ -78,8 +82,10 @@ Lcd *l = new Lcd();
 Graphics *g = new Graphics();
 
 pixColor  f = GREEN;
+pixColor pix_green = GREEN;
 pixColor  b = LTGREEN;
 pixColor  fg_grey = GRAY;
+pixColor pix_blk = BLACK;
 
 volatile float freq;
 char buf[16];
@@ -104,7 +110,7 @@ mode_t curMode;
 	Sw *dash = new Sw(DASH, PORTC_ADR);
 	Sw *pb = new Sw(PB, PORTD_ADR);
 #ifdef SHOW_ELAPSED_TIME
-	ElapsedTime *et = new ElapsedTime(100);
+	ElapsedTime *et = new ElapsedTime(ONE_SEC);
 #endif
 	Encoder *enc = new Encoder(ENCA, ENCB, PORTB_ADR);
 
@@ -124,6 +130,9 @@ mode_t curMode;
 
 	vfo *curVfo = vfoA;
 	params *param = new params(g);
+	relay *rly = new relay(param);
+	keyer *kyr = new keyer(dot,dash,rly);
+	rly->setVfo(curVfo);
 
 	//
 	// initialize a vfo and frequency
@@ -134,6 +143,15 @@ mode_t curMode;
 	dds(freq);
 
 	curMode = param->getMode();
+
+	//
+	// initialize keyer and relay
+	//
+	kyr->setSpeed(param->getSpeed());
+	kyr->setMode(param->getKey());
+	rly->setBand(band);
+	rly->setVfo(curVfo);
+
 	g->gotoxy(9,0);
 	fprintf(lcdfp, "AA6DQ");
 
@@ -178,6 +196,15 @@ mode_t curMode;
 				freq = curVfo->getTxFreq(band);
 				dds(freq);
 			}
+			
+			//
+			// update the keyer
+			//
+			kyr->setSpeed(param->getSpeed());
+			kyr->setMode(param->getKey()); 
+			rly->setBand(band);
+			rly->setVfo(curVfo);		
+			
 			curMode = newMode;
 
 		} else if ((newMode == MODE_PARAMS) && (curMode == MODE_NORMAL)) {
@@ -211,6 +238,7 @@ mode_t curMode;
 
 					if (enc->hasEvent()) {
 						uint16_t line;
+
 						curVfo->update(band);
 						enc->clearEvent();
 						freq = curVfo->getTxFreq(band);
@@ -228,19 +256,39 @@ mode_t curMode;
 			}
 		}
 
+#if 1
+
+		if (param->getKey() == KEY_ST) {
 		if (dot->hasEvent()) {
 			if (dot->getEvent() == EV_CLOSE) {
-				freq = curVfo->getTxFreq(band);
-				dds(freq);
-				reg = PORTD;
-				PORTD = reg | RLY_MSK;
-				param->setActiveVfo(TX);
+					rly->selectTx(true);
 			} else {
-				freq = curVfo->getRxFreq(band);
-				dds(freq);
-				reg = PORTD;
-				PORTD = reg & ~RLY_MSK;
-				param->setActiveVfo(RX);
+					rly->selectRx(true);
+				}
+				dot->clearEvent();
+				dash->clearEvent();
+			}
+			
+		} else /*if (param->getKey() == KEY_PDLS) */ {
+
+//printf("key: 0x%x\n", param->getKey());
+
+			if (kyr->isIdle()) {
+				if ( dot->hasEvent() || dash->hasEvent() ) { 		
+					kyr->update();
+				}
+			} else {
+//				printf("keyer state: 0x%x\n", kyr->getState());
+			}
+		}
+
+#else
+
+		if (dot->hasEvent()) {
+			if (dot->getEvent() == EV_CLOSE) {
+				rly->selectTx();
+			} else {
+				rly->selectRx();
 			}
 			dot->clearEvent();
 		}
@@ -255,6 +303,8 @@ mode_t curMode;
 			l->gotoxy(9,0);
 			l->puts(buf);
 		}
+#endif
+
 #if SHOW_ELAPSED_TIME
 		if (et->expired()) {
 			secs++;
